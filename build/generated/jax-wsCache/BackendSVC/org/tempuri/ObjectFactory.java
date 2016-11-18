@@ -33,22 +33,19 @@ import org.datacontract.schemas._2004._07.backend.Persona;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _RecuperaNombreResponseRecuperaNombreResult_QNAME = new QName("http://tempuri.org/", "RecuperaNombreResult");
-    private final static QName _ListarMedicoxCentroyEspIdCentro_QNAME = new QName("http://tempuri.org/", "id_centro");
-    private final static QName _ListarMedicoxCentroyEspEspecialidad_QNAME = new QName("http://tempuri.org/", "especialidad");
-    private final static QName _ListarMedicoResponseListarMedicoResult_QNAME = new QName("http://tempuri.org/", "ListarMedicoResult");
-    private final static QName _ListadoPacienteNoPagoResponseListadoPacienteNoPagoResult_QNAME = new QName("http://tempuri.org/", "ListadoPacienteNoPagoResult");
-    private final static QName _RecuperaNombreRut_QNAME = new QName("http://tempuri.org/", "rut");
-    private final static QName _ListadePacientePorMedicoResponseListadePacientePorMedicoResult_QNAME = new QName("http://tempuri.org/", "ListadePacientePorMedicoResult");
-    private final static QName _DistintoResponseDistintoResult_QNAME = new QName("http://tempuri.org/", "distintoResult");
-    private final static QName _RecuperaPerfilResponseRecuperaPerfilResult_QNAME = new QName("http://tempuri.org/", "RecuperaPerfilResult");
-    private final static QName _ListarHoraxFechayMedicoResponseListarHoraxFechayMedicoResult_QNAME = new QName("http://tempuri.org/", "listarHoraxFechayMedicoResult");
-    private final static QName _RutMedicoResponseRutMedicoResult_QNAME = new QName("http://tempuri.org/", "RutMedicoResult");
     private final static QName _ListarMedicoxCentroyEspResponseListarMedicoxCentroyEspResult_QNAME = new QName("http://tempuri.org/", "listarMedicoxCentroyEspResult");
-    private final static QName _CreaHoraDescp_QNAME = new QName("http://tempuri.org/", "descp");
     private final static QName _ListarCentroResponseListarCentroResult_QNAME = new QName("http://tempuri.org/", "ListarCentroResult");
-    private final static QName _CrearPagoFormaPago_QNAME = new QName("http://tempuri.org/", "forma_pago");
-    private final static QName _CrearPagoPrevision_QNAME = new QName("http://tempuri.org/", "prevision");
+    private final static QName _ListarMedicoResponseListarMedicoResult_QNAME = new QName("http://tempuri.org/", "ListarMedicoResult");
+    private final static QName _RecuperaPerfilRut_QNAME = new QName("http://tempuri.org/", "rut");
+    private final static QName _ListadoDeHorasResponseListadoDeHorasResult_QNAME = new QName("http://tempuri.org/", "ListadoDeHorasResult");
+    private final static QName _ListadePacientePorMedicoResponseListadePacientePorMedicoResult_QNAME = new QName("http://tempuri.org/", "ListadePacientePorMedicoResult");
+    private final static QName _ListadoPacienteNoPagoResponseListadoPacienteNoPagoResult_QNAME = new QName("http://tempuri.org/", "ListadoPacienteNoPagoResult");
+    private final static QName _RutMedicoResponseRutMedicoResult_QNAME = new QName("http://tempuri.org/", "RutMedicoResult");
+    private final static QName _RecuperaDatosResponseRecuperaDatosResult_QNAME = new QName("http://tempuri.org/", "RecuperaDatosResult");
+    private final static QName _ListarHoraxFechayMedicoResponseListarHoraxFechayMedicoResult_QNAME = new QName("http://tempuri.org/", "listarHoraxFechayMedicoResult");
+    private final static QName _DistintoResponseDistintoResult_QNAME = new QName("http://tempuri.org/", "distintoResult");
+    private final static QName _CreaHoraDescp_QNAME = new QName("http://tempuri.org/", "descp");
+    private final static QName _ListarReservaResponseListarReservaResult_QNAME = new QName("http://tempuri.org/", "listarReservaResult");
     private final static QName _CrearPersonaApP_QNAME = new QName("http://tempuri.org/", "apP");
     private final static QName _CrearPersonaCorreo_QNAME = new QName("http://tempuri.org/", "correo");
     private final static QName _CrearPersonaPass_QNAME = new QName("http://tempuri.org/", "pass");
@@ -56,10 +53,13 @@ public class ObjectFactory {
     private final static QName _CrearPersonaComuna_QNAME = new QName("http://tempuri.org/", "comuna");
     private final static QName _CrearPersonaApM_QNAME = new QName("http://tempuri.org/", "apM");
     private final static QName _CrearPersonaNombre_QNAME = new QName("http://tempuri.org/", "nombre");
-    private final static QName _RecuperaDatosResponseRecuperaDatosResult_QNAME = new QName("http://tempuri.org/", "RecuperaDatosResult");
+    private final static QName _ListarMedicoxCentroyEspIdCentro_QNAME = new QName("http://tempuri.org/", "id_centro");
+    private final static QName _ListarMedicoxCentroyEspEspecialidad_QNAME = new QName("http://tempuri.org/", "especialidad");
+    private final static QName _RecuperaNombreResponseRecuperaNombreResult_QNAME = new QName("http://tempuri.org/", "RecuperaNombreResult");
+    private final static QName _RecuperaPerfilResponseRecuperaPerfilResult_QNAME = new QName("http://tempuri.org/", "RecuperaPerfilResult");
+    private final static QName _CrearPagoFormaPago_QNAME = new QName("http://tempuri.org/", "forma_pago");
+    private final static QName _CrearPagoPrevision_QNAME = new QName("http://tempuri.org/", "prevision");
     private final static QName _RecibeListadoLista_QNAME = new QName("http://tempuri.org/", "Lista");
-    private final static QName _ListarReservaResponseListarReservaResult_QNAME = new QName("http://tempuri.org/", "listarReservaResult");
-    private final static QName _ListadoDeHorasResponseListadoDeHorasResult_QNAME = new QName("http://tempuri.org/", "ListadoDeHorasResult");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.tempuri
@@ -485,183 +485,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RecuperaNombreResult", scope = RecuperaNombreResponse.class)
-    public JAXBElement<String> createRecuperaNombreResponseRecuperaNombreResult(String value) {
-        return new JAXBElement<String>(_RecuperaNombreResponseRecuperaNombreResult_QNAME, String.class, RecuperaNombreResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfint }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "id_centro", scope = ListarMedicoxCentroyEsp.class)
-    public JAXBElement<ArrayOfint> createListarMedicoxCentroyEspIdCentro(ArrayOfint value) {
-        return new JAXBElement<ArrayOfint>(_ListarMedicoxCentroyEspIdCentro_QNAME, ArrayOfint.class, ListarMedicoxCentroyEsp.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "especialidad", scope = ListarMedicoxCentroyEsp.class)
-    public JAXBElement<String> createListarMedicoxCentroyEspEspecialidad(String value) {
-        return new JAXBElement<String>(_ListarMedicoxCentroyEspEspecialidad_QNAME, String.class, ListarMedicoxCentroyEsp.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfMedico }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListarMedicoResult", scope = ListarMedicoResponse.class)
-    public JAXBElement<ArrayOfMedico> createListarMedicoResponseListarMedicoResult(ArrayOfMedico value) {
-        return new JAXBElement<ArrayOfMedico>(_ListarMedicoResponseListarMedicoResult_QNAME, ArrayOfMedico.class, ListarMedicoResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPacienteNoPago }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListadoPacienteNoPagoResult", scope = ListadoPacienteNoPagoResponse.class)
-    public JAXBElement<ArrayOfPacienteNoPago> createListadoPacienteNoPagoResponseListadoPacienteNoPagoResult(ArrayOfPacienteNoPago value) {
-        return new JAXBElement<ArrayOfPacienteNoPago>(_ListadoPacienteNoPagoResponseListadoPacienteNoPagoResult_QNAME, ArrayOfPacienteNoPago.class, ListadoPacienteNoPagoResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperaNombre.class)
-    public JAXBElement<String> createRecuperaNombreRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, RecuperaNombre.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperaPerfil.class)
-    public JAXBElement<String> createRecuperaPerfilRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, RecuperaPerfil.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = VerificarListaReserva.class)
-    public JAXBElement<String> createVerificarListaReservaRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, VerificarListaReserva.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaciente }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListadePacientePorMedicoResult", scope = ListadePacientePorMedicoResponse.class)
-    public JAXBElement<ArrayOfPaciente> createListadePacientePorMedicoResponseListadePacientePorMedicoResult(ArrayOfPaciente value) {
-        return new JAXBElement<ArrayOfPaciente>(_ListadePacientePorMedicoResponseListadePacientePorMedicoResult_QNAME, ArrayOfPaciente.class, ListadePacientePorMedicoResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = ListarReserva.class)
-    public JAXBElement<String> createListarReservaRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, ListarReserva.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "distintoResult", scope = DistintoResponse.class)
-    public JAXBElement<ArrayOfstring> createDistintoResponseDistintoResult(ArrayOfstring value) {
-        return new JAXBElement<ArrayOfstring>(_DistintoResponseDistintoResult_QNAME, ArrayOfstring.class, DistintoResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RecuperaPerfilResult", scope = RecuperaPerfilResponse.class)
-    public JAXBElement<ArrayOfstring> createRecuperaPerfilResponseRecuperaPerfilResult(ArrayOfstring value) {
-        return new JAXBElement<ArrayOfstring>(_RecuperaPerfilResponseRecuperaPerfilResult_QNAME, ArrayOfstring.class, RecuperaPerfilResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = ListadePacientePorMedico.class)
-    public JAXBElement<String> createListadePacientePorMedicoRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, ListadePacientePorMedico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperarIdMedico.class)
-    public JAXBElement<String> createRecuperarIdMedicoRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, RecuperarIdMedico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAgendaMedico }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "listarHoraxFechayMedicoResult", scope = ListarHoraxFechayMedicoResponse.class)
-    public JAXBElement<ArrayOfAgendaMedico> createListarHoraxFechayMedicoResponseListarHoraxFechayMedicoResult(ArrayOfAgendaMedico value) {
-        return new JAXBElement<ArrayOfAgendaMedico>(_ListarHoraxFechayMedicoResponseListarHoraxFechayMedicoResult_QNAME, ArrayOfAgendaMedico.class, ListarHoraxFechayMedicoResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RutMedicoResult", scope = RutMedicoResponse.class)
-    public JAXBElement<ArrayOfstring> createRutMedicoResponseRutMedicoResult(ArrayOfstring value) {
-        return new JAXBElement<ArrayOfstring>(_RutMedicoResponseRutMedicoResult_QNAME, ArrayOfstring.class, RutMedicoResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = CrearReserva.class)
-    public JAXBElement<String> createCrearReservaRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, CrearReserva.class, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfMedico }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://tempuri.org/", name = "listarMedicoxCentroyEspResult", scope = ListarMedicoxCentroyEspResponse.class)
     public JAXBElement<ArrayOfMedico> createListarMedicoxCentroyEspResponseListarMedicoxCentroyEspResult(ArrayOfMedico value) {
         return new JAXBElement<ArrayOfMedico>(_ListarMedicoxCentroyEspResponseListarMedicoxCentroyEspResult_QNAME, ArrayOfMedico.class, ListarMedicoxCentroyEspResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = CreaHora.class)
-    public JAXBElement<String> createCreaHoraRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, CreaHora.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "descp", scope = CreaHora.class)
-    public JAXBElement<String> createCreaHoraDescp(String value) {
-        return new JAXBElement<String>(_CreaHoraDescp_QNAME, String.class, CreaHora.class, value);
     }
 
     /**
@@ -674,30 +503,138 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfMedico }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = CrearPago.class)
-    public JAXBElement<String> createCrearPagoRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, CrearPago.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListarMedicoResult", scope = ListarMedicoResponse.class)
+    public JAXBElement<ArrayOfMedico> createListarMedicoResponseListarMedicoResult(ArrayOfMedico value) {
+        return new JAXBElement<ArrayOfMedico>(_ListarMedicoResponseListarMedicoResult_QNAME, ArrayOfMedico.class, ListarMedicoResponse.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "forma_pago", scope = CrearPago.class)
-    public JAXBElement<String> createCrearPagoFormaPago(String value) {
-        return new JAXBElement<String>(_CrearPagoFormaPago_QNAME, String.class, CrearPago.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperaPerfil.class)
+    public JAXBElement<String> createRecuperaPerfilRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, RecuperaPerfil.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "prevision", scope = CrearPago.class)
-    public JAXBElement<String> createCrearPagoPrevision(String value) {
-        return new JAXBElement<String>(_CrearPagoPrevision_QNAME, String.class, CrearPago.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = EliminarReserva.class)
+    public JAXBElement<String> createEliminarReservaRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, EliminarReserva.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAgendaMedico }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListadoDeHorasResult", scope = ListadoDeHorasResponse.class)
+    public JAXBElement<ArrayOfAgendaMedico> createListadoDeHorasResponseListadoDeHorasResult(ArrayOfAgendaMedico value) {
+        return new JAXBElement<ArrayOfAgendaMedico>(_ListadoDeHorasResponseListadoDeHorasResult_QNAME, ArrayOfAgendaMedico.class, ListadoDeHorasResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPaciente }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListadePacientePorMedicoResult", scope = ListadePacientePorMedicoResponse.class)
+    public JAXBElement<ArrayOfPaciente> createListadePacientePorMedicoResponseListadePacientePorMedicoResult(ArrayOfPaciente value) {
+        return new JAXBElement<ArrayOfPaciente>(_ListadePacientePorMedicoResponseListadePacientePorMedicoResult_QNAME, ArrayOfPaciente.class, ListadePacientePorMedicoResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfPacienteNoPago }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListadoPacienteNoPagoResult", scope = ListadoPacienteNoPagoResponse.class)
+    public JAXBElement<ArrayOfPacienteNoPago> createListadoPacienteNoPagoResponseListadoPacienteNoPagoResult(ArrayOfPacienteNoPago value) {
+        return new JAXBElement<ArrayOfPacienteNoPago>(_ListadoPacienteNoPagoResponseListadoPacienteNoPagoResult_QNAME, ArrayOfPacienteNoPago.class, ListadoPacienteNoPagoResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RutMedicoResult", scope = RutMedicoResponse.class)
+    public JAXBElement<ArrayOfstring> createRutMedicoResponseRutMedicoResult(ArrayOfstring value) {
+        return new JAXBElement<ArrayOfstring>(_RutMedicoResponseRutMedicoResult_QNAME, ArrayOfstring.class, RutMedicoResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Persona }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RecuperaDatosResult", scope = RecuperaDatosResponse.class)
+    public JAXBElement<Persona> createRecuperaDatosResponseRecuperaDatosResult(Persona value) {
+        return new JAXBElement<Persona>(_RecuperaDatosResponseRecuperaDatosResult_QNAME, Persona.class, RecuperaDatosResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAgendaMedico }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "listarHoraxFechayMedicoResult", scope = ListarHoraxFechayMedicoResponse.class)
+    public JAXBElement<ArrayOfAgendaMedico> createListarHoraxFechayMedicoResponseListarHoraxFechayMedicoResult(ArrayOfAgendaMedico value) {
+        return new JAXBElement<ArrayOfAgendaMedico>(_ListarHoraxFechayMedicoResponseListarHoraxFechayMedicoResult_QNAME, ArrayOfAgendaMedico.class, ListarHoraxFechayMedicoResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = VerificarListaReserva.class)
+    public JAXBElement<String> createVerificarListaReservaRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, VerificarListaReserva.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = ListarReserva.class)
+    public JAXBElement<String> createListarReservaRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, ListarReserva.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "distintoResult", scope = DistintoResponse.class)
+    public JAXBElement<ArrayOfstring> createDistintoResponseDistintoResult(ArrayOfstring value) {
+        return new JAXBElement<ArrayOfstring>(_DistintoResponseDistintoResult_QNAME, ArrayOfstring.class, DistintoResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = CreaHora.class)
+    public JAXBElement<String> createCreaHoraRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, CreaHora.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "descp", scope = CreaHora.class)
+    public JAXBElement<String> createCreaHoraDescp(String value) {
+        return new JAXBElement<String>(_CreaHoraDescp_QNAME, String.class, CreaHora.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfReserva }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "listarReservaResult", scope = ListarReservaResponse.class)
+    public JAXBElement<ArrayOfReserva> createListarReservaResponseListarReservaResult(ArrayOfReserva value) {
+        return new JAXBElement<ArrayOfReserva>(_ListarReservaResponseListarReservaResult_QNAME, ArrayOfReserva.class, ListarReservaResponse.class, value);
     }
 
     /**
@@ -706,7 +643,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = CrearPersona.class)
     public JAXBElement<String> createCrearPersonaRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, CrearPersona.class, value);
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, CrearPersona.class, value);
     }
 
     /**
@@ -773,21 +710,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Persona }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfint }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RecuperaDatosResult", scope = RecuperaDatosResponse.class)
-    public JAXBElement<Persona> createRecuperaDatosResponseRecuperaDatosResult(Persona value) {
-        return new JAXBElement<Persona>(_RecuperaDatosResponseRecuperaDatosResult_QNAME, Persona.class, RecuperaDatosResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "id_centro", scope = ListarMedicoxCentroyEsp.class)
+    public JAXBElement<ArrayOfint> createListarMedicoxCentroyEspIdCentro(ArrayOfint value) {
+        return new JAXBElement<ArrayOfint>(_ListarMedicoxCentroyEspIdCentro_QNAME, ArrayOfint.class, ListarMedicoxCentroyEsp.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperaDatos.class)
-    public JAXBElement<String> createRecuperaDatosRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, RecuperaDatos.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "especialidad", scope = ListarMedicoxCentroyEsp.class)
+    public JAXBElement<String> createListarMedicoxCentroyEspEspecialidad(String value) {
+        return new JAXBElement<String>(_ListarMedicoxCentroyEspEspecialidad_QNAME, String.class, ListarMedicoxCentroyEsp.class, value);
     }
 
     /**
@@ -796,7 +733,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = ValidarPersona.class)
     public JAXBElement<String> createValidarPersonaRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, ValidarPersona.class, value);
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, ValidarPersona.class, value);
     }
 
     /**
@@ -809,6 +746,96 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = ListadePacientePorMedico.class)
+    public JAXBElement<String> createListadePacientePorMedicoRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, ListadePacientePorMedico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperaNombre.class)
+    public JAXBElement<String> createRecuperaNombreRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, RecuperaNombre.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperaDatos.class)
+    public JAXBElement<String> createRecuperaDatosRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, RecuperaDatos.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RecuperaNombreResult", scope = RecuperaNombreResponse.class)
+    public JAXBElement<String> createRecuperaNombreResponseRecuperaNombreResult(String value) {
+        return new JAXBElement<String>(_RecuperaNombreResponseRecuperaNombreResult_QNAME, String.class, RecuperaNombreResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = RecuperarIdMedico.class)
+    public JAXBElement<String> createRecuperarIdMedicoRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, RecuperarIdMedico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "RecuperaPerfilResult", scope = RecuperaPerfilResponse.class)
+    public JAXBElement<ArrayOfstring> createRecuperaPerfilResponseRecuperaPerfilResult(ArrayOfstring value) {
+        return new JAXBElement<ArrayOfstring>(_RecuperaPerfilResponseRecuperaPerfilResult_QNAME, ArrayOfstring.class, RecuperaPerfilResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = ListadoDeHoras.class)
+    public JAXBElement<String> createListadoDeHorasRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, ListadoDeHoras.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = CrearPago.class)
+    public JAXBElement<String> createCrearPagoRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, CrearPago.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "forma_pago", scope = CrearPago.class)
+    public JAXBElement<String> createCrearPagoFormaPago(String value) {
+        return new JAXBElement<String>(_CrearPagoFormaPago_QNAME, String.class, CrearPago.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "prevision", scope = CrearPago.class)
+    public JAXBElement<String> createCrearPagoPrevision(String value) {
+        return new JAXBElement<String>(_CrearPagoPrevision_QNAME, String.class, CrearPago.class, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAgendaMedico }{@code >}}
      * 
      */
@@ -818,39 +845,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfReserva }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "listarReservaResult", scope = ListarReservaResponse.class)
-    public JAXBElement<ArrayOfReserva> createListarReservaResponseListarReservaResult(ArrayOfReserva value) {
-        return new JAXBElement<ArrayOfReserva>(_ListarReservaResponseListarReservaResult_QNAME, ArrayOfReserva.class, ListarReservaResponse.class, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = ListadoDeHoras.class)
-    public JAXBElement<String> createListadoDeHorasRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, ListadoDeHoras.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAgendaMedico }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "ListadoDeHorasResult", scope = ListadoDeHorasResponse.class)
-    public JAXBElement<ArrayOfAgendaMedico> createListadoDeHorasResponseListadoDeHorasResult(ArrayOfAgendaMedico value) {
-        return new JAXBElement<ArrayOfAgendaMedico>(_ListadoDeHorasResponseListadoDeHorasResult_QNAME, ArrayOfAgendaMedico.class, ListadoDeHorasResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = EliminarReserva.class)
-    public JAXBElement<String> createEliminarReservaRut(String value) {
-        return new JAXBElement<String>(_RecuperaNombreRut_QNAME, String.class, EliminarReserva.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "rut", scope = CrearReserva.class)
+    public JAXBElement<String> createCrearReservaRut(String value) {
+        return new JAXBElement<String>(_RecuperaPerfilRut_QNAME, String.class, CrearReserva.class, value);
     }
 
 }
