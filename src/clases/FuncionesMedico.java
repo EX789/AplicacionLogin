@@ -148,4 +148,12 @@ public class FuncionesMedico {
         org.tempuri.IbackendSVC port = service.getBasicHttpBindingIbackendSVC();
         return port.listadoDeHoras(rut, fecha);
     }
+
+    public static ArrayOfAgendaMedico listarHoraxFechayMedico(javax.xml.datatype.XMLGregorianCalendar fecha, java.lang.Integer idMedico) {
+        org.tempuri.BackendSVC service = new org.tempuri.BackendSVC();
+        org.tempuri.IbackendSVC port = service.getBasicHttpBindingIbackendSVC();
+        return port.listarHoraxFechayMedico(fecha, idMedico);
+    }
+    
+    
 }

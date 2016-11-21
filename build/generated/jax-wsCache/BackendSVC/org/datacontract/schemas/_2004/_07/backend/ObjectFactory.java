@@ -37,19 +37,10 @@ public class ObjectFactory {
     private final static QName _ArrayOfPaciente_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "ArrayOfPaciente");
     private final static QName _CentroMedico_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "CentroMedico");
     private final static QName _PacienteNoPago_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "PacienteNoPago");
-    private final static QName _MedicoEspecialidad_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Especialidad");
-    private final static QName _MedicoNombre_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Nombre");
-    private final static QName _MedicoRut_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Rut");
-    private final static QName _CentroMedicoRegion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "region");
-    private final static QName _CentroMedicoComuna_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "comuna");
-    private final static QName _CentroMedicoDireccion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "direccion");
-    private final static QName _CentroMedicoNombreCentro_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "nombreCentro");
+    private final static QName _AgendaMedicoDescripcion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Descripcion");
     private final static QName _PacienteNombre_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "nombre");
     private final static QName _PacienteDescripcion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "descripcion");
     private final static QName _PacienteRut_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "rut");
-    private final static QName _PacienteNoPagoRutPaciente_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Rut_paciente");
-    private final static QName _PacienteNoPagoDescripcion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Descripcion");
-    private final static QName _ReservaRutPersona_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "rut_persona");
     private final static QName _PersonaNombrePersona_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "NombrePersona");
     private final static QName _PersonaDireccion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Direccion");
     private final static QName _PersonaApellidoM_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "ApellidoM");
@@ -58,6 +49,15 @@ public class ObjectFactory {
     private final static QName _PersonaPass_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Pass");
     private final static QName _PersonaComuna_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Comuna");
     private final static QName _PersonaCorreo_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Correo");
+    private final static QName _ReservaRutPersona_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "rut_persona");
+    private final static QName _CentroMedicoRegion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "region");
+    private final static QName _CentroMedicoComuna_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "comuna");
+    private final static QName _CentroMedicoDireccion_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "direccion");
+    private final static QName _CentroMedicoNombreCentro_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "nombreCentro");
+    private final static QName _MedicoEspecialidad_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Especialidad");
+    private final static QName _MedicoNombre_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Nombre");
+    private final static QName _MedicoRut_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Rut");
+    private final static QName _PacienteNoPagoRutPaciente_QNAME = new QName("http://schemas.datacontract.org/2004/07/Backend.Negocio", "Rut_paciente");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.datacontract.schemas._2004._07.backend
@@ -291,63 +291,9 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Especialidad", scope = Medico.class)
-    public JAXBElement<String> createMedicoEspecialidad(String value) {
-        return new JAXBElement<String>(_MedicoEspecialidad_QNAME, String.class, Medico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Nombre", scope = Medico.class)
-    public JAXBElement<String> createMedicoNombre(String value) {
-        return new JAXBElement<String>(_MedicoNombre_QNAME, String.class, Medico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Rut", scope = Medico.class)
-    public JAXBElement<String> createMedicoRut(String value) {
-        return new JAXBElement<String>(_MedicoRut_QNAME, String.class, Medico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "region", scope = CentroMedico.class)
-    public JAXBElement<String> createCentroMedicoRegion(String value) {
-        return new JAXBElement<String>(_CentroMedicoRegion_QNAME, String.class, CentroMedico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "comuna", scope = CentroMedico.class)
-    public JAXBElement<String> createCentroMedicoComuna(String value) {
-        return new JAXBElement<String>(_CentroMedicoComuna_QNAME, String.class, CentroMedico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "direccion", scope = CentroMedico.class)
-    public JAXBElement<String> createCentroMedicoDireccion(String value) {
-        return new JAXBElement<String>(_CentroMedicoDireccion_QNAME, String.class, CentroMedico.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "nombreCentro", scope = CentroMedico.class)
-    public JAXBElement<String> createCentroMedicoNombreCentro(String value) {
-        return new JAXBElement<String>(_CentroMedicoNombreCentro_QNAME, String.class, CentroMedico.class, value);
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Descripcion", scope = AgendaMedico.class)
+    public JAXBElement<String> createAgendaMedicoDescripcion(String value) {
+        return new JAXBElement<String>(_AgendaMedicoDescripcion_QNAME, String.class, AgendaMedico.class, value);
     }
 
     /**
@@ -375,42 +321,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "rut", scope = Paciente.class)
     public JAXBElement<String> createPacienteRut(String value) {
         return new JAXBElement<String>(_PacienteRut_QNAME, String.class, Paciente.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Rut_paciente", scope = PacienteNoPago.class)
-    public JAXBElement<String> createPacienteNoPagoRutPaciente(String value) {
-        return new JAXBElement<String>(_PacienteNoPagoRutPaciente_QNAME, String.class, PacienteNoPago.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Descripcion", scope = PacienteNoPago.class)
-    public JAXBElement<String> createPacienteNoPagoDescripcion(String value) {
-        return new JAXBElement<String>(_PacienteNoPagoDescripcion_QNAME, String.class, PacienteNoPago.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Nombre", scope = PacienteNoPago.class)
-    public JAXBElement<String> createPacienteNoPagoNombre(String value) {
-        return new JAXBElement<String>(_MedicoNombre_QNAME, String.class, PacienteNoPago.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "rut_persona", scope = Reserva.class)
-    public JAXBElement<String> createReservaRutPersona(String value) {
-        return new JAXBElement<String>(_ReservaRutPersona_QNAME, String.class, Reserva.class, value);
     }
 
     /**
@@ -489,9 +399,99 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Descripcion", scope = AgendaMedico.class)
-    public JAXBElement<String> createAgendaMedicoDescripcion(String value) {
-        return new JAXBElement<String>(_PacienteNoPagoDescripcion_QNAME, String.class, AgendaMedico.class, value);
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "rut_persona", scope = Reserva.class)
+    public JAXBElement<String> createReservaRutPersona(String value) {
+        return new JAXBElement<String>(_ReservaRutPersona_QNAME, String.class, Reserva.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "region", scope = CentroMedico.class)
+    public JAXBElement<String> createCentroMedicoRegion(String value) {
+        return new JAXBElement<String>(_CentroMedicoRegion_QNAME, String.class, CentroMedico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "comuna", scope = CentroMedico.class)
+    public JAXBElement<String> createCentroMedicoComuna(String value) {
+        return new JAXBElement<String>(_CentroMedicoComuna_QNAME, String.class, CentroMedico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "direccion", scope = CentroMedico.class)
+    public JAXBElement<String> createCentroMedicoDireccion(String value) {
+        return new JAXBElement<String>(_CentroMedicoDireccion_QNAME, String.class, CentroMedico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "nombreCentro", scope = CentroMedico.class)
+    public JAXBElement<String> createCentroMedicoNombreCentro(String value) {
+        return new JAXBElement<String>(_CentroMedicoNombreCentro_QNAME, String.class, CentroMedico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Especialidad", scope = Medico.class)
+    public JAXBElement<String> createMedicoEspecialidad(String value) {
+        return new JAXBElement<String>(_MedicoEspecialidad_QNAME, String.class, Medico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Nombre", scope = Medico.class)
+    public JAXBElement<String> createMedicoNombre(String value) {
+        return new JAXBElement<String>(_MedicoNombre_QNAME, String.class, Medico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Rut", scope = Medico.class)
+    public JAXBElement<String> createMedicoRut(String value) {
+        return new JAXBElement<String>(_MedicoRut_QNAME, String.class, Medico.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Rut_paciente", scope = PacienteNoPago.class)
+    public JAXBElement<String> createPacienteNoPagoRutPaciente(String value) {
+        return new JAXBElement<String>(_PacienteNoPagoRutPaciente_QNAME, String.class, PacienteNoPago.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Descripcion", scope = PacienteNoPago.class)
+    public JAXBElement<String> createPacienteNoPagoDescripcion(String value) {
+        return new JAXBElement<String>(_AgendaMedicoDescripcion_QNAME, String.class, PacienteNoPago.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/Backend.Negocio", name = "Nombre", scope = PacienteNoPago.class)
+    public JAXBElement<String> createPacienteNoPagoNombre(String value) {
+        return new JAXBElement<String>(_MedicoNombre_QNAME, String.class, PacienteNoPago.class, value);
     }
 
 }

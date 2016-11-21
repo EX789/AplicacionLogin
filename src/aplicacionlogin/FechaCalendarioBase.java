@@ -7,14 +7,12 @@ package aplicacionlogin;
 
 import clases.FuncionesMedico;
 import clases.Medico;
-import org.datacontract.schemas._2004._07.backend.ArrayOfMedico;
+import org.datacontract.schemas._2004._07.backend.*;
 import java.awt.event.MouseAdapter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +20,6 @@ import javax.swing.table.TableColumnModel;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import org.datacontract.schemas._2004._07.backend.ArrayOfAgendaMedico;
 
 /**
  *
@@ -32,6 +29,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
 
     DefaultTableModel modelo_agEliminar;
     DefaultTableModel modelo_Paciente;
+    DefaultTableModel modelo_horasDisp;
     DateFormat df = DateFormat.getDateInstance();
     GregorianCalendar c = new GregorianCalendar();
     XMLGregorianCalendar date2;
@@ -61,6 +59,26 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
             }
         };
         tbPacienteEspera.setModel(modelo_Paciente);//Se ingresa el odelo a la tabla de la ventana
+
+        String[] cab_disponible = {"", "horas", "Disponible"};//Se creara la cabezera de la tabla
+        Object[][] datos_disp_agenda = {};
+        modelo_horasDisp = new DefaultTableModel(datos_disp_agenda, cab_disponible) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return int.class;
+                    case 1:
+                        return String.class;
+                    default:
+                        return Boolean.class;
+                }
+            }
+        };
+
+        tListaHorasDisp.setModel(modelo_horasDisp);
     }
 
     /**
@@ -76,13 +94,14 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cbFecha = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbMedicoDisp = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tListaHorasDisp = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        dtxtFechaDisp = new com.toedter.calendar.JDateChooser();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         dbCalendarioBase = new com.toedter.calendar.JDateChooser();
@@ -128,15 +147,21 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Fecha");
+        jPanel3.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanel3AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
-        cbFecha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Opciones de fecha" }));
+        jLabel1.setText("Fecha");
 
         jLabel3.setText("Medico");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un medico" }));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tListaHorasDisp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -153,7 +178,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                 "Inicio", "Termino", "Disponible"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tListaHorasDisp);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Disponibilidad medica");
@@ -165,6 +190,13 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -172,7 +204,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(19, 19, 19)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,9 +217,11 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                                         .addComponent(jLabel1)
                                         .addComponent(jLabel3))
                                     .addGap(65, 65, 65)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cbFecha, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cbMedicoDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(dtxtFechaDisp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3))))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -195,14 +229,20 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel4)
-                .addGap(65, 65, 65)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(dtxtFechaDisp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addGap(10, 10, 10)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbMedicoDisp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -635,24 +675,60 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jPanel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel3AncestorAdded
+        if (cbMedicoDisp.getModel().getSelectedItem() == null) {
+            cbMedicoDisp.setModel(clases.FuncionesMedico.cargarComboBox());
+        }
+    }//GEN-LAST:event_jPanel3AncestorAdded
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        modelo_horasDisp.setRowCount(0);
+        try {
+            c.setTime(dtxtFechaDisp.getDate());
+            date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+            Medico med = (Medico) cbMedicoDisp.getSelectedItem();
+            for (AgendaMedico elemento : clases.FuncionesMedico.listarHoraxFechayMedico(date2, clases.FuncionesMedico.retornarIdMedico(med.getRut())).getAgendaMedico()) {
+                if (elemento.getDescripcion().getValue().equalsIgnoreCase("disponible")) {
+                    Object[] datos_agenda = {elemento.getIdAgendaMedico(), clases.FuncionesGenerales.darFormatoHora(elemento.getHoras()) + ":"
+                        + clases.FuncionesGenerales.darFormatoHora(elemento.getMinutos()), true};
+                     modelo_horasDisp.addRow(datos_agenda);
+                } else if (elemento.getDescripcion().getValue().equalsIgnoreCase("reservada")) {
+                    continue;
+                } else {
+                    Object[] datos_agenda = {elemento.getIdAgendaMedico(), clases.FuncionesGenerales.darFormatoHora(elemento.getHoras()) + ":"
+                        + clases.FuncionesGenerales.darFormatoHora(elemento.getMinutos()), false};
+                    modelo_horasDisp.addRow(datos_agenda);
+                }
+            }
+            
+            if (tListaHorasDisp.getColumnModel().getColumnCount()>2) {
+                tcm = tListaHorasDisp.getColumnModel();
+                tcm.removeColumn(tcm.getColumn(0));
+            }
+        } catch (DatatypeConfigurationException ex) {
+            Logger.getLogger(FechaCalendarioBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JComboBox<String> cbDisponible;
-    private javax.swing.JComboBox<String> cbFecha;
     private javax.swing.JComboBox<String> cbHora;
     private javax.swing.JComboBox<String> cbListaMedicos;
+    private javax.swing.JComboBox<String> cbMedicoDisp;
     private javax.swing.JComboBox<String> cbMinuto;
     private javax.swing.JComboBox<String> cmbMedico;
     private javax.swing.JComboBox<String> cmbMedicoAgregar;
     private com.toedter.calendar.JDateChooser dbCalendarioBase;
     private com.toedter.calendar.JDateChooser dtxtFecha;
+    private com.toedter.calendar.JDateChooser dtxtFechaDisp;
     private com.toedter.calendar.JDateChooser dtxtFechaNuevaHora;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -675,9 +751,9 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblNombreMedico;
     private javax.swing.JTable tAgendaMedicoEliminar;
+    private javax.swing.JTable tListaHorasDisp;
     private javax.swing.JTable tbPacienteEspera;
     // End of variables declaration//GEN-END:variables
 
