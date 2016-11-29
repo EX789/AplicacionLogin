@@ -5,10 +5,8 @@
  */
 package clases;
 
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfdateTime;
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfstring;
-import java.util.*;
-import java.util.Date;
+
+
 import javax.swing.DefaultComboBoxModel;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.datacontract.schemas._2004._07.backend.ArrayOfAgendaMedico;
