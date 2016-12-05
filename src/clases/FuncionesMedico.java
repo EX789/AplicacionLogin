@@ -12,6 +12,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.datacontract.schemas._2004._07.backend.ArrayOfAgendaMedico;
 import org.datacontract.schemas._2004._07.backend.ArrayOfMedico;
 import org.datacontract.schemas._2004._07.backend.ArrayOfPaciente;
+import org.datacontract.schemas._2004._07.backend.ArrayOfPagoComision;
+import org.datacontract.schemas._2004._07.backend.ArrayOfRecaudacion;
 
 /**
  *
@@ -151,6 +153,16 @@ public class FuncionesMedico {
         org.tempuri.BackendSVC service = new org.tempuri.BackendSVC();
         org.tempuri.IbackendSVC port = service.getBasicHttpBindingIbackendSVC();
         return port.listarHoraxFechayMedico(fecha, idMedico);
+    }
+     public static ArrayOfRecaudacion listadoRecaudacionXFechasYMedico(java.lang.String rut,javax.xml.datatype.XMLGregorianCalendar fechaInicio,javax.xml.datatype.XMLGregorianCalendar fechaTermino ){
+        org.tempuri.BackendSVC service = new org.tempuri.BackendSVC();
+        org.tempuri.IbackendSVC port = service.getBasicHttpBindingIbackendSVC();
+        return port.listadoRecaaudacionXFechasyMedico(rut, fechaInicio, fechaTermino);
+    }
+          public static ArrayOfPagoComision listadoPagoComision(){
+        org.tempuri.BackendSVC service = new org.tempuri.BackendSVC();
+        org.tempuri.IbackendSVC port = service.getBasicHttpBindingIbackendSVC();
+        return port.listadoPagoComisiones();
     }
     
     

@@ -20,6 +20,7 @@ import javax.swing.table.TableColumnModel;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import org.datacontract.schemas._2004._07.backend.ArrayOfRecaudacion;
 
 /**
  *
@@ -30,15 +31,39 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
     DefaultTableModel modelo_agEliminar;
     DefaultTableModel modelo_Paciente;
     DefaultTableModel modelo_horasDisp;
+    DefaultTableModel modelo_Recaudacion;
+    DefaultTableModel modelo_comision;
     DateFormat df = DateFormat.getDateInstance();
     GregorianCalendar c = new GregorianCalendar();
+    GregorianCalendar cF = new GregorianCalendar();
     XMLGregorianCalendar date2;
+    XMLGregorianCalendar date3;
     TableColumnModel tcm;
 
     public FechaCalendarioBase() {
         initComponents();
 
         setVisible(true);
+        String[] cab_Comision = {"Fecha", "Estado", "Rut Medico", "nombre Completo","Total Comision"};//Se crean las cabezeras de la tabla
+        String[][] datos_Comision = {};
+        modelo_comision = new DefaultTableModel(datos_Comision, cab_Comision) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };//Se inserta los datos creados previamente al modelo de tablas
+        tbComision.setModel(modelo_comision);//Se inserta el modelo a la tabla creada en la ventana
+          String[] cab_Recaudacion = {"Fecha", "Paciente", "nombre Completo","Monto"};//Se crean las cabezeras de la tabla
+        String[][] datos_Recaudacion = {};
+        
+        modelo_Recaudacion = new DefaultTableModel(datos_Recaudacion, cab_Recaudacion) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };//Se inserta los datos creados previamente al modelo de tablas
+        tbRecaudacion.setModel(modelo_Recaudacion);//Se inserta el modelo a la tabla creada en la ventana
+        
         String[] cab_agEliminar = {"id_agenda", "Fecha", "id_medico", "Horas", "Descripcion"};//Se crean las cabezeras de la tabla
         String[][] datos_agEliminar = {};
         modelo_agEliminar = new DefaultTableModel(datos_agEliminar, cab_agEliminar) {
@@ -142,16 +167,20 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         dxtFechaTermino = new com.toedter.calendar.JDateChooser();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tbRecaudacion = new javax.swing.JTable();
         btnMostrar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         cmbMedicoComision = new javax.swing.JComboBox<>();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        btnComprobanteComision = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         cmbPagoComision = new javax.swing.JComboBox<>();
+        btnBuscarComision = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tbComision = new javax.swing.JTable();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -178,13 +207,23 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.addAncestorListener(new javax.swing.event.AncestorListener() {
+        jTabbedPane1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTabbedPane1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
+        });
+
+        jPanel3.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel3AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -278,7 +317,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jButton2)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Disponibilidad", jPanel3);
@@ -318,18 +357,18 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                 .addComponent(dbCalendarioBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(jButton1)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addContainerGap(410, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("C. base", jPanel2);
 
         jPanel5.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel5AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -389,18 +428,18 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                     .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Verificar pacientes en espera", jPanel5);
 
         jPanel6.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel6AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -468,18 +507,18 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                         .addComponent(jButton7)))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Eliminar hora", jPanel6);
 
         jPanel7.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel7AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -565,7 +604,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(cbMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
@@ -582,7 +621,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
 
         jLabel15.setText("Fecha Termino");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tbRecaudacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -599,7 +638,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                 "  Fecha", "  Medico", " Cantidad Paciente", " Total Recaudado"
             }
         ));
-        jScrollPane4.setViewportView(jTable2);
+        jScrollPane4.setViewportView(tbRecaudacion);
 
         btnMostrar.setText("Mostrar");
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -654,7 +693,7 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                     .addComponent(btnMostrar))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Informe Recaudacion", jPanel4);
@@ -680,6 +719,8 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(jTable3);
 
+        btnComprobanteComision.setText("Buscar");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -690,7 +731,9 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addComponent(jLabel16)
                         .addGap(37, 37, 37)
-                        .addComponent(cmbMedicoComision, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbMedicoComision, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnComprobanteComision, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -699,38 +742,79 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(cmbMedicoComision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                    .addComponent(cmbMedicoComision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComprobanteComision))
+                .addGap(35, 35, 35)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Comprobante Comision", jPanel9);
 
+        jPanel10.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanel10AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         jLabel17.setText("Medico");
+
+        btnBuscarComision.setText("Buscar");
+        btnBuscarComision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarComisionActionPerformed(evt);
+            }
+        });
+
+        tbComision.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tbComision);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel17)
-                .addGap(33, 33, 33)
-                .addComponent(cmbPagoComision, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel17)
+                        .addGap(33, 33, 33)
+                        .addComponent(cmbPagoComision, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnBuscarComision))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(52, 52, 52)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(cmbPagoComision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(527, Short.MAX_VALUE))
+                    .addComponent(cmbPagoComision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarComision))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pago Comision", jPanel10);
@@ -885,12 +969,68 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        // TODO add your handling code here:
+           modelo_Recaudacion.setRowCount(0);
+        if (dxtFechaInicio.getDate() == null || dxtFechaTermino.getDate() == null) {//Si el cambo de fecha esta vacio se desplegara el siguiente mensaje
+            JOptionPane.showMessageDialog(this, "Debe ingresar una fecha");
+        } else {
+            Medico med = (Medico) cmbMedicoBuscar.getSelectedItem();
+            c.setTime(dxtFechaInicio.getDate());
+            cF.setTime(dxtFechaTermino.getDate());
+          
+            try {
+                date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+                date3 = DatatypeFactory.newInstance().newXMLGregorianCalendar(cF);
+                ArrayOfRecaudacion arra = FuncionesMedico.listadoRecaudacionXFechasYMedico(med.getRut(), date2, date3);
+                
+                for(org.datacontract.schemas._2004._07.backend.Recaudacion agenda : arra.getRecaudacion()){
+                String fecha = agenda.getFecha().getDay() + "/" + agenda.getFecha().getMonth() + "/" + agenda.getFecha().getYear();
+                Object[] elementos = {fecha,agenda.getPaciente(),agenda.getNombre().getValue() + " " + agenda.getApePat().getValue() + " " +agenda.getApeMat().getValue(),agenda.getMonto() };
+                modelo_Recaudacion.addRow(elementos);   
+              
+                }               
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            } }
     }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void jTabbedPane1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTabbedPane1AncestorAdded
+           if (cmbMedicoBuscar.getModel().getSelectedItem() == null) {
+            cmbMedicoBuscar.setModel(clases.FuncionesMedico.cargarComboBox());
+        }
+    }//GEN-LAST:event_jTabbedPane1AncestorAdded
+
+    private void btnBuscarComisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarComisionActionPerformed
+                   modelo_comision.setRowCount(0);
+       
+         
+            Medico med = (Medico) cmbPagoComision.getSelectedItem();
+          
+            try {
+                date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+                ArrayOfPagoComision arra = FuncionesMedico.listadoPagoComision();
+                
+                for(org.datacontract.schemas._2004._07.backend.PagoComision agenda : arra.getPagoComision()){
+                String fecha = agenda.getMes() + "/" + agenda.getAnio();
+                Object[] elementos = {fecha,agenda.getEstado().getValue(),agenda.getRut().getValue(),agenda.getNombre().getValue(),agenda.getTotal()};
+                modelo_comision.addRow(elementos);   
+              
+                }               
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            } 
+    }//GEN-LAST:event_btnBuscarComisionActionPerformed
+
+    private void jPanel10AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel10AncestorAdded
+            if (cmbPagoComision.getModel().getSelectedItem() == null) {
+            cmbPagoComision.setModel(clases.FuncionesMedico.cargarComboBox());
+        }
+    }//GEN-LAST:event_jPanel10AncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarComision;
+    private javax.swing.JButton btnComprobanteComision;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JComboBox<String> cbDisponible;
     private javax.swing.JComboBox<String> cbHora;
@@ -945,13 +1085,15 @@ public class FechaCalendarioBase extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JLabel lblNombreMedico;
     private javax.swing.JTable tAgendaMedicoEliminar;
     private javax.swing.JTable tListaHorasDisp;
+    private javax.swing.JTable tbComision;
     private javax.swing.JTable tbPacienteEspera;
+    private javax.swing.JTable tbRecaudacion;
     // End of variables declaration//GEN-END:variables
 
 }
