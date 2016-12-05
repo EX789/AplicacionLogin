@@ -16,6 +16,8 @@ import org.datacontract.schemas._2004._07.backend.ArrayOfCentroMedico;
 import org.datacontract.schemas._2004._07.backend.ArrayOfMedico;
 import org.datacontract.schemas._2004._07.backend.ArrayOfPaciente;
 import org.datacontract.schemas._2004._07.backend.ArrayOfPacienteNoPago;
+import org.datacontract.schemas._2004._07.backend.ArrayOfPagoComision;
+import org.datacontract.schemas._2004._07.backend.ArrayOfRecaudacion;
 import org.datacontract.schemas._2004._07.backend.ArrayOfReserva;
 import org.datacontract.schemas._2004._07.backend.Persona;
 
@@ -465,5 +467,87 @@ public interface IbackendSVC {
     public Boolean recibeListado(
         @WebParam(name = "Lista", targetNamespace = "http://tempuri.org/")
         ArrayOfAgendaMedico lista);
+
+    /**
+     * 
+     * @param correo
+     */
+    @WebMethod(action = "http://tempuri.org/IbackendSVC/enviarCorreo")
+    @RequestWrapper(localName = "enviarCorreo", targetNamespace = "http://tempuri.org/", className = "org.tempuri.EnviarCorreo")
+    @ResponseWrapper(localName = "enviarCorreoResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.EnviarCorreoResponse")
+    public void enviarCorreo(
+        @WebParam(name = "correo", targetNamespace = "http://tempuri.org/")
+        String correo);
+
+    /**
+     * 
+     * @param fechaini
+     * @param fechafinal
+     * @return
+     *     returns org.datacontract.schemas._2004._07.backend.ArrayOfRecaudacion
+     */
+    @WebMethod(action = "http://tempuri.org/IbackendSVC/listadoRecaaudacionXFechas")
+    @WebResult(name = "listadoRecaaudacionXFechasResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "listadoRecaaudacionXFechas", targetNamespace = "http://tempuri.org/", className = "org.tempuri.ListadoRecaaudacionXFechas")
+    @ResponseWrapper(localName = "listadoRecaaudacionXFechasResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.ListadoRecaaudacionXFechasResponse")
+    public ArrayOfRecaudacion listadoRecaaudacionXFechas(
+        @WebParam(name = "fechaini", targetNamespace = "http://tempuri.org/")
+        XMLGregorianCalendar fechaini,
+        @WebParam(name = "fechafinal", targetNamespace = "http://tempuri.org/")
+        XMLGregorianCalendar fechafinal);
+
+    /**
+     * 
+     * @param rut
+     * @param fechaini
+     * @param fechafinal
+     * @return
+     *     returns org.datacontract.schemas._2004._07.backend.ArrayOfRecaudacion
+     */
+    @WebMethod(action = "http://tempuri.org/IbackendSVC/listadoRecaaudacionXFechasyMedico")
+    @WebResult(name = "listadoRecaaudacionXFechasyMedicoResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "listadoRecaaudacionXFechasyMedico", targetNamespace = "http://tempuri.org/", className = "org.tempuri.ListadoRecaaudacionXFechasyMedico")
+    @ResponseWrapper(localName = "listadoRecaaudacionXFechasyMedicoResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.ListadoRecaaudacionXFechasyMedicoResponse")
+    public ArrayOfRecaudacion listadoRecaaudacionXFechasyMedico(
+        @WebParam(name = "rut", targetNamespace = "http://tempuri.org/")
+        String rut,
+        @WebParam(name = "fechaini", targetNamespace = "http://tempuri.org/")
+        XMLGregorianCalendar fechaini,
+        @WebParam(name = "fechafinal", targetNamespace = "http://tempuri.org/")
+        XMLGregorianCalendar fechafinal);
+
+    /**
+     * 
+     * @return
+     *     returns org.datacontract.schemas._2004._07.backend.ArrayOfPagoComision
+     */
+    @WebMethod(action = "http://tempuri.org/IbackendSVC/listadoPagoComisiones")
+    @WebResult(name = "listadoPagoComisionesResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "listadoPagoComisiones", targetNamespace = "http://tempuri.org/", className = "org.tempuri.ListadoPagoComisiones")
+    @ResponseWrapper(localName = "listadoPagoComisionesResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.ListadoPagoComisionesResponse")
+    public ArrayOfPagoComision listadoPagoComisiones();
+
+    /**
+     * 
+     * @param rut
+     * @param comp
+     * @param mes
+     * @param anio
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod(operationName = "RealizarPagoComision", action = "http://tempuri.org/IbackendSVC/RealizarPagoComision")
+    @WebResult(name = "RealizarPagoComisionResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "RealizarPagoComision", targetNamespace = "http://tempuri.org/", className = "org.tempuri.RealizarPagoComision")
+    @ResponseWrapper(localName = "RealizarPagoComisionResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.RealizarPagoComisionResponse")
+    public Boolean realizarPagoComision(
+        @WebParam(name = "mes", targetNamespace = "http://tempuri.org/")
+        Integer mes,
+        @WebParam(name = "anio", targetNamespace = "http://tempuri.org/")
+        Integer anio,
+        @WebParam(name = "rut", targetNamespace = "http://tempuri.org/")
+        String rut,
+        @WebParam(name = "comp", targetNamespace = "http://tempuri.org/")
+        String comp);
 
 }
